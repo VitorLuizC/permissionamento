@@ -1,0 +1,15 @@
+# Dependencies.
+node_modules/
+.pnp/
+.pnp.js
+
+# PNPM and Yarn lockfiles + NPM shrinkwrap.
+npm-shrinkwrap.json
+yarn.lock
+pnpm-lockfile.yaml
+
+# VSCode directory.
+.vscode/
+
+# Transpiled sources.
+dist/

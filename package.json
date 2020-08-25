@@ -1,0 +1,14 @@
+{
+  "name": "permissionamento",
+  "private": true,
+  "engines": {
+    "node": "^12.18.3"
+  },
+  "devDependencies": {
+    "@types/node": "12.12.54",
+    "typescript": "4.0.2"
+  },
+  "dependencies": {
+    "role-acl": "^4.5.4"
+  }
+}
