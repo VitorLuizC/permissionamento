@@ -1,3 +1,3 @@
-const permissionsOfHackathonOwner = {} as const;
+const permissionsOfUser = {} as const;
 
-export default permissionsOfHackathonOwner;
+export default permissionsOfUser;
