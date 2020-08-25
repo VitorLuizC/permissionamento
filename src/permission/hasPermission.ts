@@ -1,7 +1,9 @@
-import resolveToArray from "../utils/resolveToArray";
-import accessControl from "./accessControl";
-import PermissionRoleEnum from "./enums/PermissionRoleEnum";
+import resolveToArray from '../utils/resolveToArray';
+import accessControl from './accessControl';
+import PermissionRoleEnum from './enums/PermissionRoleEnum';
+
 import type { Permissions } from "./permissions";
+import type { Permission } from "role-acl";
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 type Context<T> = T extends { condition: (_: infer C) => unknown } ? C : {};
@@ -26,11 +28,10 @@ export default async function hasPermission<
   action: Action;
   context: Context<Permissions[Resource][Action]>;
   resource: Resource;
-}): Promise<boolean> {
-  const permission = await accessControl
+}): Promise<Permission> {
+  return await accessControl
     .can(resolveToArray(options.roles ?? PermissionRoleEnum.ANY))
     .execute(options.action as string)
     .context(options.context ?? {})
     .on(options.resource, false);
-  return permission.granted;
 }
